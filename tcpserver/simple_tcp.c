@@ -15,7 +15,7 @@ int main(void) {
 	socklen_t sin_size;
 	int recv_length=1, yes=1;
 	unsigned char buffer[1024];
-    char welcome[9] = "WELCOME!\n";
+    char welcome_phrase[9] = "WELCOME!\n";
 
 	if ((sockfd = socket(PF_INET, SOCK_STREAM, 0)) == -1)
 		fatal("in socket");
@@ -42,7 +42,7 @@ int main(void) {
 			fatal("accepting connection");
 		printf("SERVER: got connection from %s port %d\n",inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
 
-		send(new_sockfd, &welcome, strlen(welcome), 0);
+		send(new_sockfd, &welcome_phrase, strlen(welcome_phrase), 0);
 		recv_length = recv(new_sockfd, &buffer, 1024, 0);
 
 		while(recv_length > 0) {
