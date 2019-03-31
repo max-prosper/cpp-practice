@@ -15,7 +15,7 @@ int main(void) {
 	socklen_t sin_size;
 	int recv_length=1, yes=1;
 	unsigned char buffer[1024];
-    char welcome_phrase[9] = "WELCOME!\n";
+    char welcome_phrase[9]="WELCOME!\n";
 
 	if ((sockfd = socket(PF_INET, SOCK_STREAM, 0)) == -1)
 		fatal("in socket");
